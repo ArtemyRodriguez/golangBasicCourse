@@ -12,11 +12,11 @@ func main() {
 	for {
 		fmt.Println(">>> Калькулятор Индекса Массы тела <<<")
 		userHeight, userWeight := getUserInput()
-		IMT, _ := calculateIMT(userHeight, userWeight)
-		// if err != nil {
-		// 	fmt.Print("Не заданы параметры для расчета!")
-		// 	continue
-		// }
+		IMT, err := calculateIMT(userHeight, userWeight)
+		if err != nil {
+			fmt.Print("Не заданы параметры для расчета!")
+			continue
+		}
 		outputResult(IMT)
 		isRepeatCalculation := checkRepeatCalculation()
 		if !isRepeatCalculation {
