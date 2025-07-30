@@ -9,6 +9,12 @@ import (
 const IMTPower = 2
 
 func main() {
+	defer func() {
+		r := recover()
+		if r != nil {
+			fmt.Println("Recover", r)
+		}
+	}()
 	for {
 		fmt.Println(">>> Калькулятор Индекса Массы тела <<<")
 		userHeight, userWeight := getUserInput()
